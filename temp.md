@@ -1,6 +1,9 @@
 # 建立git遠程倉庫，利用git clone进行共享
 
-- 建立该项目的 git 目錄
+- 建立该项目的 git 目錄。
+例如，molnplus的其中一個項目是DR70，其路徑是：
+
+    ~/phenomenon/
 
     mkdir repositoryname
 
