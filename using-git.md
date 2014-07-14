@@ -21,16 +21,16 @@ _(想都不用想，一般都是我親自幹的)_
 - 使用版本控制系統通常還意味著，就算你亂來一氣把整個項目中的文件改 的改刪的刪，你也照樣可以輕鬆恢復到原先的樣子。
 - 完成以上的動作，額外增加的工作量卻微乎其微。
 
-### 分布式版本控制系统(Distributed Version Control System, DVCS)
-在这类系统中，像 Git，Mercurial，Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把原始的代码仓库完整地镜像下来。
-这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜 像出来的本地仓库恢复。
-因为每一次的提取操作，实际上都是一次对代码仓库的完整备份
+### 分布式版本控制系統(Distributed Version Control System, DVCS)
+在這類系統中，像 Git，Mercurial，Bazaar 以及 Darcs 等，客戶端並不只提取最新版本的文件快照，而是把原始的代碼倉庫完整地鏡像下來。
+這麼一來，任何一處協同工作用的服務器發生故障，事後都可以用任何一個鏡 像出來的本地倉庫恢復。
+因為每一次的提取操作，實際上都是一次對代碼倉庫的完整備份
 
 ![figure](http://jbcdn2.b0.upaiyun.com/2012/08/Git-start3.png)
 
-许多这类系统都可以指定和若干不同的远端代码仓库进行交互。
-籍此，你就可以在同一个项目中，分别和不同工作小组的人相互协作。
-你可以根据需要设定不同的协作流程，比如层次模型式的工作流，而这在以前的集中式系统中是无法实现的。
+許多這類系統都可以指定和若干不同的遠端代碼倉庫進行交互。
+籍此，你就可以在同一個項目中，分別和不同工作小組的人相互協作。
+你可以根據需要設定不同的協作流程，比如層次模型式的工作流，而這在以前的集中式系統中是無法實現的。
 
 ## 基本操作
 
@@ -168,67 +168,3 @@ _(想都不用想，一般都是我親自幹的)_
 
     git add -i
     
-
-# 使用git建立远程仓库，让别人git clone下来
-如何建立一个站在项目leader的角度，建立远程仓库。
-1. 建立你的git 目录。
-
-    mkdir testgit
-    cd testgit/
-
-2. 建立你的git仓库。
-
-    git init
-
-会反馈：
-
-    Initialized empty Git repository in /home/wlp/testgit/.git/
-
-3. 添加你的需要的项目初始文件，这里我就只添加一张文档了。
-
-    echo "hello,git" > sayhi.txt
-
-4. 跟踪及提交到仓库。
-    git add sayhi.txt
-    git commit -m "2011.4.13" sayhi.txt
-
-    [master (root-commit) b87b535] 2011.4.13
-    1 files changed, 1 insertions(+), 0 deletions(-)
-    create mode 100644 sayhi.txt
-
-5. 在本地的git仓库"添加一个远程仓库",当然这个远程仓库还是你自己的这个目录。
-
-    git remote add origin ssh://你的IP/~/testgit/.git
-
-这时候,本地的 .git/config 应该会改变
-
-6. 将本地的 master分支 ，跟踪到远程的分支
-
-    git push origin master
-
-7. 显示远程信息
-
-    git remote show origin
-
-8. 利用其他局域网的电脑测试你的仓库
-
-    git clone ssh://你的IP/home/～/testgit/.git
-
-
-    Initialized empty Git repository in /home/wlp/test/git/.git/
-    xxx‘s password:
-    remote: Counting objects: 3, done.
-    Receiving objects: 100% (3/3), done.
-    remote: Total 3 (delta 0), reused 0 (delta 0)
-
-9. 大功告成，开始动手建立你的仓库吧。
-
-Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused
- 
-造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 11.10 默认安装openssh-client，但是木有安装server
- 
-运行 ps -e | grep ssh，查看是否有sshd进程
- 
-如果没有，说明server没启动，通过 /etc/init.d/ssh -start 启动server进程，如果提示ssh不存在 那么就是没安装server
- 
-通过 sudo apt-get install openssh-server命令安装即可
