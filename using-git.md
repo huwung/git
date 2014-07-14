@@ -170,36 +170,58 @@ _(想都不用想，一般都是我親自幹的)_
     
 
 # 使用git建立远程仓库，让别人git clone下来
-关于git的基本使用我就不表，如有不熟的推荐看OurUnix的csdn博客。所以这里主要讲下如何建立一个站在项目leader的角度，建立远程仓库。
-1，建立你的git 目录。
-ourunix@ubuntu:~$ mkdir testgit
-ourunix@ubuntu:~$ cd testgit/
-2,建立你的git仓库。
-ourunix@ubuntu:~/testgit$ git init
-Initialized empty Git repository in /home/wlp/testgit/.git/
-3，添加你的需要的项目初始文件，这里我就只添加一张文档了。
-ourunix@ubuntu:~/testgit$ echo "hello,git" > sayhi.txt
-4，跟踪及提交到仓库。
-ourunix@ubuntu:~/testgit$ git add sayhi.txt
-ourunix@ubuntu:~/testgit$ git commit -m "2011.4.13" sayhi.txt
-[master (root-commit) b87b535] 2011.4.13
-1 files changed, 1 insertions(+), 0 deletions(-)
-create mode 100644 sayhi.txt
-5.在本地的git仓库"添加一个远程仓库",当然这个远程仓库还是你自己的这个目录。
-ourunix@ubuntu:~/testgit$ git remote add origin ssh://你的IP/~/testgit/.git
+如何建立一个站在项目leader的角度，建立远程仓库。
+1. 建立你的git 目录。
+
+    mkdir testgit
+    cd testgit/
+
+2. 建立你的git仓库。
+
+    git init
+
+会反馈：
+
+    Initialized empty Git repository in /home/wlp/testgit/.git/
+
+3. 添加你的需要的项目初始文件，这里我就只添加一张文档了。
+
+    echo "hello,git" > sayhi.txt
+
+4. 跟踪及提交到仓库。
+    git add sayhi.txt
+    git commit -m "2011.4.13" sayhi.txt
+
+    [master (root-commit) b87b535] 2011.4.13
+    1 files changed, 1 insertions(+), 0 deletions(-)
+    create mode 100644 sayhi.txt
+
+5. 在本地的git仓库"添加一个远程仓库",当然这个远程仓库还是你自己的这个目录。
+
+    git remote add origin ssh://你的IP/~/testgit/.git
+
 这时候,本地的 .git/config 应该会改变
-6.将本地的 master分支 ，跟踪到远程的分支
-ourunix@ubuntu:~/testgit$ git push origin master
-7,显示远程信息
-ourunix@ubuntu:~/testgit$git remote show origin
-8,利用其他局域网的电脑测试你的仓库
-ourunix@ubuntu:~/test$ git clone ssh://你的IP/home/～/testgit/.git
-Initialized empty Git repository in /home/wlp/test/git/.git/
-xxx‘s password:
-remote: Counting objects: 3, done.
-Receiving objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0)
-9，大功告成，开始动手建立你的仓库吧。
+
+6. 将本地的 master分支 ，跟踪到远程的分支
+
+    git push origin master
+
+7. 显示远程信息
+
+    git remote show origin
+
+8. 利用其他局域网的电脑测试你的仓库
+
+    git clone ssh://你的IP/home/～/testgit/.git
+
+
+    Initialized empty Git repository in /home/wlp/test/git/.git/
+    xxx‘s password:
+    remote: Counting objects: 3, done.
+    Receiving objects: 100% (3/3), done.
+    remote: Total 3 (delta 0), reused 0 (delta 0)
+
+9. 大功告成，开始动手建立你的仓库吧。
 
 Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused
  
