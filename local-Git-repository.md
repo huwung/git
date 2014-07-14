@@ -18,7 +18,7 @@
 
 在本地的git仓库"添加一个远程仓库",当然这个远程仓库还是你自己的这个目录：
 
-    git remote add origin ssh://你的IP/~/testgit/.git
+    git remote add origin ssh://192.168.1.115/~/testgit/.git
 
 将本地的 master分支 ，跟踪到远程的分支
 
@@ -30,6 +30,6 @@
 
 利用其他局域网的电脑测试你的仓库
 
-    git clone ssh://你的IP/home/～/testgit/.git
+    git clone ssh://192.168.1.115/home/～/testgit/.git
 
 就是这样简单。
