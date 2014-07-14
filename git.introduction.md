@@ -46,7 +46,7 @@ _我用git來進行文件版本管理。_
 
 ### 上传至Github
 
-    git remote add origin git@github.com:huwung/something.git
+    git remote add origin git@github.com:huwung/repository-name.git
     git push origin master
     
     
