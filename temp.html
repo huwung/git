@@ -10,35 +10,25 @@
 </head>
 <body>
 <p><link href="/Users/wanghu/phenomenon/personlig/markdown/kevinburke.css" rel="stylesheet"></link></p>
-<h1 id="git">GIT</h1>
-<hr />
-<p><em>我用git來進行文件版本管理。</em></p>
-<hr />
-<hr />
-<h2 id="principle">principle</h2>
-<p>git將其視為小型檔案系統的一組快照(Snapshot)。 每一次讀者提交更新時、或者儲存目前專案的狀態到Git時。 基本上它為當時的資料做一組快照並記錄參考到該快照的參考點。 為了講求效率，只要檔案沒有變更，Git不會再度儲存該檔案，而是記錄到前一次的相同檔案的連結。 Git的工作方式如圖所示。</p>
-<div class="figure">
-<img src="http://git-scm.com/figures/18333fig0105-tn.png" alt="圖：Git儲存每次專案更新時的快照" /><p class="caption">圖：Git儲存每次專案更新時的快照</p>
-</div>
-<h2 id="tutorial">Tutorial</h2>
+<h1 id="tutorial">Tutorial</h1>
 <p>設置是按照<a href="http://wuyuans.com/2012/05/github-simple-tutorial/">github-simple-tutorial</a>和<a href="http://artori.us/git-github-usage/">git-github-usage</a>來進行的。 主要有以下幾步：</p>
-<h3 id="註冊賬戶以及創建倉庫">註冊賬戶以及創建倉庫</h3>
-<h3 id="在本地創建ssh-key">在本地創建ssh key</h3>
+<h2 id="註冊賬戶以及創建倉庫">註冊賬戶以及創建倉庫</h2>
+<h2 id="在本地創建ssh-key">在本地創建ssh key</h2>
 <pre><code>ssh-keygen -t rsa -C &quot;huwung@gmail.com&quot;</code></pre>
+<p>‘’’ bash ssh-keygen -t rsa -C &quot;huwung@gmail.com&quot; ‘’’</p>
 <p>首次設置會提示是否continue，輸入yes，如果成功連上github會返回：</p>
 <pre><code>You&#39;ve successfully authenticated, but GitHub does not provide shell access</code></pre>
 <p>回到github的頁面上，進入Account Settings。 在該頁面的 <strong>SSH Public Keys</strong> 標籤中選擇 <strong>Add another public key</strong>。 <strong>Title</strong> 隨意，在 <strong>Key</strong> 中複製粘貼 <strong>id_rsa.pub</strong> 中的內容。 文本編輯器我用的是 <strong>vim</strong>。</p>
 <p>使用以下命令測試連接</p>
 <pre><code>ssh -v git@github.com</code></pre>
-<h3 id="設置username和email">設置username和email</h3>
+<h2 id="設置username和email">設置username和email</h2>
 <pre><code>git config --global user.name “huWANG”
 git config --global user.email &quot;huwung@gmail.com&quot;</code></pre>
-<h3 id="gitignore">gitignore</h3>
+<h2 id="gitignore">gitignore</h2>
 <p>.gitignore顧名思義就是告訴git需要忽略的文件。 一般我們寫完代碼後會執行編譯、調試等操作，這期間會產生很多中間文件和可執行文件，這些都不是代碼文件，是不需要git來管理的。</p>
-<h3 id="tag">tag</h3>
-<h3 id="上传至github">上传至Github</h3>
+<h2 id="tag">tag</h2>
+<h2 id="上传至github">上传至Github</h2>
 <pre><code>git remote add origin git@github.com:huwung/repository-name.git
 git push origin master</code></pre>
-<p>暂时就是这样，，，</p>
 </body>
 </html>

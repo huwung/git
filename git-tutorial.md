@@ -9,6 +9,11 @@
 ## 在本地創建ssh key
 
     ssh-keygen -t rsa -C "huwung@gmail.com"
+
+‘’’
+bash
+ssh-keygen -t rsa -C "huwung@gmail.com"
+‘’’
     
 首次設置會提示是否continue，輸入yes，如果成功連上github會返回：
 
